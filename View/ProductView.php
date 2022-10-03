@@ -13,7 +13,7 @@ class ProductView{
     }
 
      function showProducts($categorias, $productos){
-        $this->smarty->assign('titulo','Cart');
+        $this->smarty->assign('titulo','Shopping Cart');
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->assign('productos', $productos);
         $this->smarty->display('Templates\product.tpl');
