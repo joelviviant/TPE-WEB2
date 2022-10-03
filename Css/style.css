@@ -1,0 +1,81 @@
+body {
+    font-family: 'Questrial', sans-serif;
+}
+
+.form-producto{
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(1, 0.5fr);
+    grid-template-rows: repeat(3, 65px);
+    gap: 1em;
+    justify-content: center;
+
+}
+
+.form-categoria{
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(1, 0.5fr);
+    grid-template-rows: repeat(2, 65px);
+    gap: 1em;
+    justify-content: center;
+
+}
+
+#categoria-nombre{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#producto{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#categoria{
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+#agregar{
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+}
+
+#agregar-categoria{
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+
+.boton-container{
+    display: flex;
+    justify-content:center;
+}
+
+.tabla-container{
+    width: 60%;
+    margin:auto;
+}
+
+.tabla-container-categorias{
+    width: 40%;
+    margin:auto;
+}
+
+.form-container{
+    width: 60%;
+    margin:auto;
+}
+
+
+.titulo{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.productos-container{
+    display: flex;
+    justify-content: center;
+}
