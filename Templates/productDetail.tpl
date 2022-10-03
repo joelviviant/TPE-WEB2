@@ -1,5 +1,5 @@
 {include file='Templates/header.tpl'}
-<a href="/web2">Carrito</a>
+<a href="">Cart</a>
 {if !isset ($smarty.session.email)}
 <a href="login">Login</a>
 {/if}
