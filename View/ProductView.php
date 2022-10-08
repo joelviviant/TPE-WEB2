@@ -12,10 +12,11 @@ class ProductView{
         $this->smarty = new Smarty();
     }
 
-     function showProducts($categorias, $productos){
+     function showProducts($categorias, $productos, $error = null){
         $this->smarty->assign('titulo','Shopping Cart');
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->assign('productos', $productos);
+        $this->smarty->assign('error',$error);
         $this->smarty->display('Templates\product.tpl');
     }
 
@@ -43,11 +44,9 @@ class ProductView{
     }
 
 
-    function showProduct($producto, $idUser, $rol){
+    function showProduct($producto){
         $this->smarty->assign('titulo','Detalle de Producto');
         $this->smarty->assign('producto', $producto);
-        $this->smarty->assign('id', $idUser);
-        $this->smarty->assign('rol', $rol);
         $this->smarty->display('Templates\productDetail.tpl');          
     }
 

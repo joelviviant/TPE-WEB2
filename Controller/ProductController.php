@@ -27,12 +27,21 @@ class ProductController{
 
 
     function addProd(){
-        if($_SESSION['rol']==0){
-            $this->model->insertProducto($_POST['nombre'], $_POST['categoria']);
-            $this->view->showHomeLocation();
+        $nombre = $_POST['nombre'];
+        $categoria = $_POST['categoria'];
+        $products = $this->model->getProductos();
+        $categories = $this->modelCategory-> getListCategory();
+        if(isset($nombre)&&!empty($nombre)){
+            if($_SESSION['rol']==0){
+                $this->model->insertProducto($nombre, $categoria);
+                $this->view->showHomeLocation();
+            }else{
+                $this->view->showErrorLocation();
+            }  
         }else{
-            $this->view->showErrorLocation();
-        }  
+            $this->view->showProducts($categories, $products,'Ingrese todos los campos');
+        }
+
     }
 
 

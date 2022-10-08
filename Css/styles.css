@@ -1,5 +1,43 @@
-body {
+body{
     font-family: 'Questrial', sans-serif;
+    background-image: url(../Images/fondo.jpg);
+    background-size:cover;
+    display:flex!important;
+    flex-direction: column!important;
+    min-height: 100%!important;
+}
+
+html {
+    height: 100%!important;
+}
+
+a.title-edit{
+    color: black!important;
+}
+.list-group-item{
+   text-align: center;
+   background-color: black;
+   color: white!important;
+}
+
+.list-group-item a{
+    color: white!important;
+}
+.text-white.bg-dark {
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footer{
+margin-top: auto!important;
+background-color: black;
+color: white;
+text-align: center;
+}
+
+.text-info, .text-success, .text-dark{
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 .form-producto{
@@ -9,7 +47,6 @@ body {
     grid-template-rows: repeat(3, 65px);
     gap: 1em;
     justify-content: center;
-
 }
 
 .form-categoria{
@@ -19,7 +56,6 @@ body {
     grid-template-rows: repeat(2, 65px);
     gap: 1em;
     justify-content: center;
-
 }
 
 #categoria-nombre{
@@ -56,6 +92,7 @@ body {
 .tabla-container{
     width: 60%;
     margin:auto;
+    
 }
 
 .tabla-container-categorias{
@@ -68,14 +105,17 @@ body {
     margin:auto;
 }
 
-
-.titulo{
-    text-align: center;
+h1.titulo{
     margin-top: 15px;
     margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 .productos-container{
     display: flex;
     justify-content: center;
 }
+
+

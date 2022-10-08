@@ -27,7 +27,7 @@ class LoginController {
     
     function logout(){
         $this->authHelper->logout();
-        $this->view->showLogin();
+        $this->view->showHome();
     }
 
     function verifyLogin(){
@@ -44,7 +44,7 @@ class LoginController {
                 $_SESSION['rol'] = $user->rol;
                 $this->view->showHome(); 
         } else {
-                 $this->view->showLogin("Acceso denegado. Usuario o contraseña invalidos");
+                 $this->view->showLogin("Usuario o contraseña invalidos");
             }
         }
     }

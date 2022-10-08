@@ -1,20 +1,15 @@
 {include file='Templates/header.tpl'}
-<a href="">Cart</a>
-{if !isset ($smarty.session.email)}
-<a href="login">Login</a>
-{/if}
+
 {if isset ($smarty.session.email)}
-<a href="logout">Logout</a>
- {/if}
-<div class="titulo">
-    <h1>Categorias</h1>
-</div>
+<h1 class="titulo">{$titulo}</h1>
+{/if}
+
 {if isset ($smarty.session.email)}
 <div class="form-container">
     <form action="addCat" method="post">
         <div class="form-group form-categoria">
             <div id="categoria-nombre">
-                <label>Nombre</label>  
+                <label class="text-center">Nombre</label>  
                 <input type="text" class="form-control" name="nombre" id="nombre">
             </div>
             <div id="agregar-categoria">
@@ -30,7 +25,8 @@
 
 
 <div class="tabla-container-categorias">
-    <table class="table table-striped">
+    <h1 class="titulo">Categorias</h1>
+    <table class="table table-dark">
      <thead>
         <tr>
             <th class="text-center" >Categoria</a></th>
@@ -43,7 +39,7 @@
         {foreach from=$categorias item=categoria}
             <tr>
                 <td class="text-center">
-                    <a href="viewCat/{$categoria->id_categoria}">{$categoria->nombre}</a>
+                    <a class="text-success" href="viewCat/{$categoria->id_categoria}">{$categoria->nombre}</a>
                 </td>
                     {if isset ($smarty.session.email)}
                     <td class="text-center">

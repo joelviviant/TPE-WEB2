@@ -19,19 +19,5 @@ class AuthHelper{
         session_destroy();
     }
     
-    function getId(){
-        if (isset($_SESSION['id'])) {
-            $id=$_SESSION['id'] ;
-            return $id;
-        }
-    } 
-    function getRol(){
-        if (isset($_SESSION['rol'])) {
-            $rol=$_SESSION['rol'];
-            return $rol;
-        }
-    }
-
-    
 }
 
