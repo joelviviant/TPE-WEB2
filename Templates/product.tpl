@@ -7,7 +7,7 @@
 
 {if isset ($smarty.session.email)}
 <div class="form-container">
-    <form action="addProd" method="post">
+    <form action="addProd" method="post" enctype="multipart/form-data">
     <div class="form-group form-producto">
         <div id="producto">
             <label class="navbar-brand" >Producto</label>
@@ -20,6 +20,10 @@
         <div id="marca">
             <label class="navbar-brand" >Marca</label>
             <input class="form-control" type="text" name="marca" id="marca">
+        </div>
+        <div id="imagen">
+        <label class="navbar-brand" >Adjuntar imagen</label>
+        <input class="form-control" type="file" name="input_name" value="" id="imageToUpload">
         </div>
         <div id="categoria">
         <label class="navbar-brand">Categorias</a></label>

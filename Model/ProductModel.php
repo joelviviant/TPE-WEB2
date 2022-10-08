@@ -21,9 +21,15 @@ class ProductModel{
         return $categorias; 
     }
 
-    function insertProducto($nombre, $categoria,$cantidad,$marca){
-        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria,cantidad,marca) VALUES(?, ?,?,?)");
-        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca));
+  
+
+    function insertProducto($nombre, $categoria,$cantidad,$marca,$imagen){
+        $destination = "Uploads/";
+        if(isset($imagen) && !empty($imagen)){
+            move_uploaded_file($imagen['tmp_name'], $destination .$imagen['name']);
+        }
+        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria,cantidad,marca,imagen) VALUES(?,?,?,?,?)");
+        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,$destination .$imagen['name']));
     }
 
     function deleteProdFromDB($id){
@@ -34,15 +40,25 @@ class ProductModel{
     
 
     function getProd($id){
-        $sentencia = $this->db->prepare( "select p.id,p.nombre,p.cantidad,p.marca ,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria  WHERE id=?");
+        $sentencia = $this->db->prepare( "select p.id,p.nombre,p.cantidad,p.marca,p.imagen ,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria  WHERE id=?");
         $sentencia -> execute(array($id));
         $producto = $sentencia->fetch(PDO::FETCH_OBJ);
         return $producto; 
     }
 
+    function editProdImageFromDB($id, $nombre, $categoria,$cantidad,$marca,$imagen){
+        $destination = "Uploads/";
+        if(isset($imagen) && !empty($imagen)){
+            move_uploaded_file($imagen['tmp_name'], $destination .$imagen['name']);
+        }
+        $sentencia = $this->db->prepare("UPDATE producto SET nombre=?, categoria=?, cantidad=?, marca=? , imagen=? WHERE id=?");
+        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,$destination .$imagen['name'], $id));
+    }
+    
     function editProdFromDB($id, $nombre, $categoria,$cantidad,$marca){
-        $sentencia = $this->db->prepare("UPDATE producto SET nombre=?, categoria=?, cantidad=?, marca=? WHERE id=?");
-        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca, $id));
+      
+        $sentencia = $this->db->prepare("UPDATE producto SET nombre=?, categoria=?, cantidad=?, marca=?  WHERE id=?");
+        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,$id));
     }
 
 }

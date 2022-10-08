@@ -5,7 +5,7 @@
     <h1 class="titulo">{$titulo}</h1>
 
 <div class="form-container">
-    <form action="updateProd" method="post">
+    <form action="updateProd" method="post" enctype="multipart/form-data" >
         <div class="form-group form-productoDetail">
             <div id="producto">
                 <label><a class="text-dark"  href="productos">Producto</a></label>
@@ -14,6 +14,9 @@
                 <input type="number" class="form-control" name="cantidad" value="{$producto->cantidad}" id="cantidad">
                 <label class="navbar-brand" >Marca</label>
                 <input type="text" class="form-control" name="marca" value="{$producto->marca}" id="marca">
+                
+                <label class="navbar-brand" >Adjuntar imagen</label>
+                <input class="form-control" type="file" name="input_name" value="{$producto->imagen}" id="imageToUpload">
 
                 <input hidden name="id" value="{$producto->id}" id="id">
             </div>
