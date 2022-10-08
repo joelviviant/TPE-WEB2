@@ -50,10 +50,11 @@
         <thead>
         <tr>
             <th class="text-center"><a class="text-info" href="productos">Producto</a></th>
+            <th class="text-center"><a id="title-marca" >Marca</a></th>	
             <th class="text-center"><a class="text-success" href="categorias">Categoria</a></th>
-            {if isset ($smarty.session.email)}
-                <th></a></th>	
-            {/if}		
+            <th></th>
+            
+         	
             
         </tr>
         </thead>
@@ -62,6 +63,7 @@
             {foreach from=$productos item=$producto}
                 <tr>
                     <td class="text-center"> <a class="text-white bg-dark"  href="viewProd/{$producto->id}">{$producto->nombre}</a>  </td>
+                    <td class="text-center"> <a class="text-white bg-dark" >{$producto->marca}</a></td>
                     <td class="text-center"> <a class="text-white bg-dark" href="viewCat/{$producto->id_categoria}">{$producto->categoria}</a></td>
                     {if isset ($smarty.session.email)}
                         <td class="text-center"> 

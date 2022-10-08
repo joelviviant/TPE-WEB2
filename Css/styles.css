@@ -43,6 +43,13 @@ a.title-edit{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#title-marca{
+    color: orange;
+    text-transform: uppercase;
+    text-decoration: none!important;
+
+}
+
 .footer{
 margin-top: auto!important;
 background-color: black;
@@ -52,7 +59,7 @@ text-align: center;
 
 .text-info, .text-success, .text-dark{
     text-transform: uppercase;
-    text-decoration: none;
+    text-decoration: none!important;
 }
 
 .form-producto{

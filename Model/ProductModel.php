@@ -8,7 +8,7 @@ class ProductModel{
     }
 
     function getProductos(){
-        $sentencia = $this->db->prepare( "select p.id,p.nombre,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria");
+        $sentencia = $this->db->prepare( "select p.id,p.nombre,p.marca,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria");
         $sentencia -> execute();
         $productos = $sentencia->fetchALL(PDO::FETCH_OBJ); 
         return $productos; 
