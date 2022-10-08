@@ -50,10 +50,11 @@ class ProductView{
         $this->smarty->display('Templates\productDetail.tpl');          
     }
 
-    function showEdit($producto,$categories){
+    function showEdit($producto,$categories, $error =null){
         $this->smarty->assign('titulo','Edite el Producto');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('producto', $producto);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('Templates\productEdit.tpl');
            
     }

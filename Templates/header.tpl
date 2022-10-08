@@ -22,7 +22,8 @@
       <p class="navbar-brand">Inventario del Usuario: {$smarty.session.email}</p>
     {/if}
     {if !isset ($smarty.session.email)}
-      <p class="navbar-brand">Inventarios Columbia</p>
+      <p class="navbar-brand">
+      Inventarios Columbia</p>
     {/if}
     {if !isset ($smarty.session.email)}
       <a class="navbar-brand" href="login">Login</a>

@@ -34,6 +34,7 @@
                 <div class="boton-container">
                     <input type="submit" id="submit" class="btn btn-primary" value="Guardar" name="submit">
                 </div>
+                <p class="text-danger">{$error}</p>
             </div>
         </div>			
     </form>

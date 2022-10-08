@@ -36,12 +36,18 @@ class CategoryController{
     }
 
     function addCat(){
-    if($_SESSION['rol']==0){
-        $this->model->insertCat($_POST['nombre']);
-        $this->view->showListLocation();    
-    }else{
-        $this->productView->showErrorLocation();
-        }  
+           $nombre = $_POST['nombre'];
+           $categorias = $this->model->getListCategory();
+           if(isset($nombre)&&!empty($nombre)){
+        if($_SESSION['rol']==0){
+            $this->model->insertCat($nombre);
+            $this->view->showListLocation();    
+        }else{
+            $this->productView->showErrorLocation();
+            }  
+        }else{
+            $this->view->showListCategory($categorias,'Ingrese todos los campos');
+        }
     }
 
     function deleteCat($id_categoria){

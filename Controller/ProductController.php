@@ -75,8 +75,17 @@ class ProductController{
         $categoria =$_POST['categoria'];
         $cantidad = $_POST['cantidad'];
         $marca =$_POST['marca'];
-        $this->model-> editProdFromDB($id,$nombre,$categoria,$cantidad,$marca);
-        $this->view->showHomeLocation();
+
+        $categories=$this->modelCategory->getListCategory();
+        $producto = $this->model->getProd($id);
+
+        if(isset($nombre)&&!empty($nombre)&&isset($cantidad)&&!empty($cantidad)&&isset($marca)&&!empty($marca)){
+            $this->model-> editProdFromDB($id,$nombre,$categoria,$cantidad,$marca);
+            $this->view->showHomeLocation();
+        }else{
+            $this->view->showEdit($producto, $categories,'Ingrese todos los campos');
+        }
+
     }
 
     function viewProd($id){

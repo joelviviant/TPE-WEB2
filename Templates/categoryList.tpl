@@ -16,6 +16,7 @@
                 <div class="boton-container">
                     <input type="submit" class="btn btn-primary" id="submit" value="Agregar" name="submit">
                 </div>
+                <p class="text-danger">{$error}</p>
             </div>
         </div>
     </form>

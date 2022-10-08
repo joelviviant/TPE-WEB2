@@ -20,9 +20,10 @@ class CategoryView{
         $this->smarty->display('Templates\category.tpl');        
     }     
 
-    function showListCategory($categorias){
+    function showListCategory($categorias, $error=null){
         $this->smarty->assign('titulo','Agregue una Categoria');
         $this->smarty->assign('categorias', $categorias);
+        $this->smarty->assign('error', $error);
         $this->smarty->display('Templates\categoryList.tpl');
     }
 
