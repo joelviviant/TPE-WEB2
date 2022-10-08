@@ -13,6 +13,14 @@
             <label class="navbar-brand" >Producto</label>
             <input class="form-control" type="text" name="nombre" id="nombre">
         </div>
+        <div id="cantidad">
+            <label class="navbar-brand" >Cantidad</label>
+            <input class="form-control" type="number" name="cantidad" id="cantidad">
+        </div>
+        <div id="marca">
+            <label class="navbar-brand" >Marca</label>
+            <input class="form-control" type="text" name="marca" id="marca">
+        </div>
         <div id="categoria">
         <label class="navbar-brand">Categorias</a></label>
             <select class="form-control" name="categoria" id="categoria">

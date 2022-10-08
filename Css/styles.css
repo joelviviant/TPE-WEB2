@@ -76,10 +76,17 @@ text-align: center;
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
 }
-
-#agregar{
+#cantidad{
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
+}
+#marca{
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+}
+#agregar{
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
 }
 
 #agregar-categoria{

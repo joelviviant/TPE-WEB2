@@ -21,9 +21,9 @@ class ProductModel{
         return $categorias; 
     }
 
-    function insertProducto($nombre, $categoria){
-        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria) VALUES(?, ?)");
-        $sentencia->execute(array($nombre, $categoria));
+    function insertProducto($nombre, $categoria,$cantidad,$marca){
+        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria,cantidad,marca) VALUES(?, ?,?,?)");
+        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca));
     }
 
     function deleteProdFromDB($id){
@@ -34,7 +34,7 @@ class ProductModel{
     
 
     function getProd($id){
-        $sentencia = $this->db->prepare( "select p.id,p.nombre,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria  WHERE id=?");
+        $sentencia = $this->db->prepare( "select p.id,p.nombre,p.cantidad,p.marca ,c.nombre as categoria,c.id_categoria from producto p join categoria c on p.categoria=c.id_categoria  WHERE id=?");
         $sentencia -> execute(array($id));
         $producto = $sentencia->fetch(PDO::FETCH_OBJ);
         return $producto; 

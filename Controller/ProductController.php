@@ -29,11 +29,13 @@ class ProductController{
     function addProd(){
         $nombre = $_POST['nombre'];
         $categoria = $_POST['categoria'];
+        $cantidad =$_POST['cantidad'];
+        $marca =$_POST['marca'];
         $products = $this->model->getProductos();
         $categories = $this->modelCategory-> getListCategory();
-        if(isset($nombre)&&!empty($nombre)){
+        if(isset($nombre)&&!empty($nombre)&&isset($cantidad)&&!empty($cantidad)&&isset($marca)&&!empty($marca)){
             if($_SESSION['rol']==0){
-                $this->model->insertProducto($nombre, $categoria);
+                $this->model->insertProducto($nombre, $categoria,$cantidad,$marca);
                 $this->view->showHomeLocation();
             }else{
                 $this->view->showErrorLocation();
