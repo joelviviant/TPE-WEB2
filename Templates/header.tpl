@@ -18,6 +18,12 @@
 <nav  class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
   <a href=""><img  width="50" height="50"  src="./Images/inventario.png"></a>
+    {if isset ($smarty.session.email)}
+      <p class="navbar-brand">Inventario del Usuario: {$smarty.session.email}</p>
+    {/if}
+    {if !isset ($smarty.session.email)}
+      <p class="navbar-brand">Inventarios Columbia</p>
+    {/if}
     {if !isset ($smarty.session.email)}
       <a class="navbar-brand" href="login">Login</a>
       {/if}
