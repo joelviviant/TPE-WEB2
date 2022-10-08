@@ -8,6 +8,9 @@
         <h2 class="text-center">Marca: {$producto->marca}</h2>
     </div>
     <h2 class="text-center">Categoria: {$producto->categoria}</h2>
-    <img  id="imagen-producto"  src="{$producto->imagen}">
-
+    
+    {if ({$producto->imagen}!=null)}
+        <img  id="imagen-producto"  src="{$producto->imagen}">
+    {/if}
+    
 {include file='Templates/footer.tpl'}

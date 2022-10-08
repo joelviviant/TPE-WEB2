@@ -25,11 +25,13 @@ class ProductModel{
 
     function insertProducto($nombre, $categoria,$cantidad,$marca,$imagen){
         $destination = "Uploads/";
+        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria,cantidad,marca,imagen) VALUES(?,?,?,?,?)");
         if(isset($imagen) && !empty($imagen)){
             move_uploaded_file($imagen['tmp_name'], $destination .$imagen['name']);
+            $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,$destination .$imagen['name']));
+        }else{
+            $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,null));
         }
-        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, categoria,cantidad,marca,imagen) VALUES(?,?,?,?,?)");
-        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca,$destination .$imagen['name']));
     }
 
     function deleteProdFromDB($id){
