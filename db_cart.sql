@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2022 a las 18:29:23
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 08-10-2022 a las 06:21:22
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,18 +52,20 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
-  `categoria` int(11) NOT NULL
+  `categoria` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `marca` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `categoria`) VALUES
-(95, 'carne', 3),
-(96, 'detergente', 15),
-(103, 'azucar', 2),
-(104, 'fideosl', 2);
+INSERT INTO `producto` (`id`, `nombre`, `categoria`, `cantidad`, `marca`) VALUES
+(95, 'carne', 3, 5, 'El paisano'),
+(96, 'detergente', 15, 25, 'Magistral'),
+(103, 'azucar', 2, 23, 'Ledesma'),
+(104, 'fideos', 2, 49, 'Matarazzo');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
