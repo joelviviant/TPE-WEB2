@@ -12,7 +12,6 @@
         <div id="producto">
             <label class="navbar-brand" >Producto</label>
             <input class="form-control" type="text" name="nombre" id="nombre">
-            <p class="text-danger">{$error}</p>
         </div>
         <div id="categoria">
         <label class="navbar-brand">Categorias</a></label>
@@ -26,6 +25,7 @@
             <div class="boton-container">
                 <input type="submit" id="submit" value="Agregar" class="btn btn-primary" name="submit">
             </div>
+            <p class="text-danger">{$error}</p>
         </div>
         
     </div>		

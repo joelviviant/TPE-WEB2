@@ -6,6 +6,10 @@ body{
     flex-direction: column!important;
     min-height: 100%!important;
 }
+p.text-danger{
+    background-color: black!important;
+  
+}
 
 html {
     height: 100%!important;
