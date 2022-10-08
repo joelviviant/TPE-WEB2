@@ -40,9 +40,9 @@ class ProductModel{
         return $producto; 
     }
 
-    function editProdFromDB($id, $nombre, $categoria){
-        $sentencia = $this->db->prepare("UPDATE producto SET nombre=?, categoria=?  WHERE id=?");
-        $sentencia->execute(array($nombre, $categoria, $id));
+    function editProdFromDB($id, $nombre, $categoria,$cantidad,$marca){
+        $sentencia = $this->db->prepare("UPDATE producto SET nombre=?, categoria=?, cantidad=?, marca=? WHERE id=?");
+        $sentencia->execute(array($nombre, $categoria,$cantidad,$marca, $id));
     }
 
 }

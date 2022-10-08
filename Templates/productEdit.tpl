@@ -6,12 +6,18 @@
 
 <div class="form-container">
     <form action="updateProd" method="post">
-        <div class="form-group form-producto">
+        <div class="form-group form-productoDetail">
             <div id="producto">
                 <label><a class="text-dark"  href="productos">Producto</a></label>
                 <input type="text" class="form-control" name="nombre" value="{$producto->nombre}" id="nombre">
+                <label class="navbar-brand" >Cantidad</label>
+                <input type="number" class="form-control" name="cantidad" value="{$producto->cantidad}" id="cantidad">
+                <label class="navbar-brand" >Marca</label>
+                <input type="text" class="form-control" name="marca" value="{$producto->marca}" id="marca">
+
                 <input hidden name="id" value="{$producto->id}" id="id">
             </div>
+
             <div id="categoria">
                 <label><a class="text-dark" href="categorias">Categoria</a></label>
                 <select class="form-control" name="categoria" id="categoria"> 

@@ -48,7 +48,15 @@ text-align: center;
     display: grid;
     height: 100%;
     grid-template-columns: repeat(1, 0.5fr);
-    grid-template-rows: repeat(3, 65px);
+    grid-template-rows: repeat(5, 65px);
+    gap: 1em;
+    justify-content: center;
+}
+.form-productoDetail{
+    display: grid;
+    height: 100%;
+  grid-template-columns:repeat(1, 5 px);
+  grid-template-rows: repeat(1, 200px);
     gap: 1em;
     justify-content: center;
 }

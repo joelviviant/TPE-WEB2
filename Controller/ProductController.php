@@ -70,8 +70,12 @@ class ProductController{
     }
 
     function updateProd(){
-        
-        $this->model-> editProdFromDB($_POST['id'], $_POST['nombre'], $_POST['categoria']);
+        $id = $_POST['id'];
+        $nombre =$_POST['nombre'];
+        $categoria =$_POST['categoria'];
+        $cantidad = $_POST['cantidad'];
+        $marca =$_POST['marca'];
+        $this->model-> editProdFromDB($id,$nombre,$categoria,$cantidad,$marca);
         $this->view->showHomeLocation();
     }
 
