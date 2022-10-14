@@ -52,8 +52,9 @@
             <th class="text-center"><a class="text-info" href="productos">Producto</a></th>
             <th class="text-center"><a id="title-marca" >Marca</a></th>	
             <th class="text-center"><a class="text-success" href="categorias">Categoria</a></th>
+            {if isset ($smarty.session.email)}
             <th></th>
-            
+             {/if}
          	
             
         </tr>

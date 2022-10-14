@@ -68,16 +68,12 @@ class ProductController
         }
     }
 
-    function editProd($id)
-    {
-        if ($_SESSION['rol'] == 0) {
-            $categories = $this->modelCategory->getListCategory();
-            $producto = $this->model->getProd($id);
-            $this->view->showEdit($producto, $categories);
-        } else {
-            $this->view->showErrorLocation();
-        }
+    function editProd($id){
+        $categories = $this->modelCategory->getListCategory();
+        $producto = $this->model->getProd($id);
+        $this->view->showEdit($producto, $categories);
     }
+    
 
     function updateProd(){
         $files = $_FILES['input_name'];

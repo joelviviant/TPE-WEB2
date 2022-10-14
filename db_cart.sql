@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2022 a las 23:18:39
+-- Tiempo de generación: 14-10-2022 a las 18:08:23
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -40,8 +40,7 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
 (2, 'Almacen'),
 (3, 'Carniceria'),
 (4, 'Perfumeria'),
-(15, 'Limpieza'),
-(19, 'Bebidas');
+(15, 'Limpieza');
 
 -- --------------------------------------------------------
 
@@ -55,7 +54,7 @@ CREATE TABLE `producto` (
   `categoria` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `marca` varchar(45) NOT NULL,
-  `imagen` varchar(50) NOT NULL
+  `imagen` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -63,11 +62,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `categoria`, `cantidad`, `marca`, `imagen`) VALUES
-(95, 'carne', 3, 5333, 'El paisano', 'Uploads/carne.jpg'),
-(96, 'detergente', 15, 25, 'Magistral', 'Uploads/detergente.jpg'),
-(103, 'azucar', 2, 23, 'Ledesma', 'Uploads/azucar.jpg'),
-(104, 'fideos', 2, 49, 'Matarazzo', 'Uploads/fideos.png'),
-(109, 'Limpiador de Piso', 15, 87, 'Poet', 'Uploads/poet.png');
+(138, 'Papas Fritas ', 2, 45, 'Lays', ''),
+(142, 'Ketchup', 2, 33, 'Heinz', '');
 
 -- --------------------------------------------------------
 
@@ -127,7 +123,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -143,7 +139,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id_categoria`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
