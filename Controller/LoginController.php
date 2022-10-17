@@ -12,13 +12,13 @@ class LoginController {
     private $model;
     private $view;
     private $authHelper;
-    private $productView;
+   
 
     function __construct(){
         $this->model = new UserModel();
         $this->view = new LoginView();
         $this->authHelper = new AuthHelper();
-        $this->productView = new ProductView();
+        
     }  
   
     function login(){

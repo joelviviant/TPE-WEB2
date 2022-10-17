@@ -55,12 +55,11 @@ class CategoryController{
     }
 
     function deleteCat($id_categoria){
-        $this->authHelper->checkLoggedIn();
-        if($_SESSION['rol']==0){
+        if(isset($_SESSION["email"])){        
         $this->model-> deleteCatFromDB($id_categoria);
         $this->view->showListLocation(); 
     }else{
-        $this->productView->showErrorLocation();
+        header("Location:".BASE_URL. "login"); 
     }  
 }
 

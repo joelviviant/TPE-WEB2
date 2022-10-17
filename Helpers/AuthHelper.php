@@ -14,6 +14,8 @@ class AuthHelper{
         }
     }
 
+   
+
     function logout(){
         session_destroy();
     }

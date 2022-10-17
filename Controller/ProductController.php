@@ -58,16 +58,12 @@ class ProductController
 
 
     function deleteProd($id){
-        $this->authHelper->checkLoggedIn();
-        if (isset($id)) {
-            if ($_SESSION['rol'] == 0) {
-                $this->authHelper->checkLoggedIn();
-                $this->model->deleteProdFromDB($id);
-                $this->view->showHomeLocation();
-            } else {
-                $this->view->showErrorLocation();
-            }
-        }
+        if(isset($_SESSION["email"])){
+        $this->model->deleteProdFromDB($id);
+        $this->view->showHomeLocation();
+        }else{
+            header("Location:".BASE_URL. "login"); 
+        }     
     }
 
     function editProd($id){
