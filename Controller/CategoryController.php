@@ -3,18 +3,21 @@
 require_once "./Model/CategoryModel.php";
 require_once "./View/CategoryView.php";
 require_once "./View/ProductView.php";
+require_once "./Helpers/AuthHelper.php";
 
 class CategoryController{
 
     private $model;
     private $view;
     private $productView;
+    private $authHelper;
 
 
     function __construct(){
         $this->model = new CategoryModel();
         $this->view = new CategoryView();
         $this->productView = new ProductView();
+        $this->authHelper = new AuthHelper();
 
     }
 
@@ -36,6 +39,7 @@ class CategoryController{
     }
 
     function addCat(){
+        $this->authHelper->checkLoggedIn();
            $nombre = $_POST['nombre'];
            $categorias = $this->model->getListCategory();
            if(isset($nombre)&&!empty($nombre)){
@@ -51,6 +55,7 @@ class CategoryController{
     }
 
     function deleteCat($id_categoria){
+        $this->authHelper->checkLoggedIn();
         if($_SESSION['rol']==0){
         $this->model-> deleteCatFromDB($id_categoria);
         $this->view->showListLocation(); 
@@ -60,6 +65,7 @@ class CategoryController{
 }
 
     function editCat($id){
+        $this->authHelper->checkLoggedIn();
         if($_SESSION['rol']==0){
         $categoria = $this->model->getCatById($id);
         $this->view->showEditCat($categoria);
@@ -69,7 +75,7 @@ class CategoryController{
 }
     
     function updateCat(){
-     
+        $this->authHelper->checkLoggedIn();
         $this->model-> editCatFromDB($_POST['id'], $_POST['nombre']);
         $this->view->showListLocation();
     }

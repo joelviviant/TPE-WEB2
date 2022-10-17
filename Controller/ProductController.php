@@ -20,8 +20,8 @@ class ProductController
         $this->modelCategory = new CategoryModel();
         $this->authHelper = new AuthHelper();
     }
-    function showHome()
-    {
+    function showHome(){
+    
         $products = $this->model->getProductos();
         $categories = $this->modelCategory->getListCategory();
         $this->view->showProducts($categories, $products);
@@ -29,6 +29,8 @@ class ProductController
 
 
     function addProd(){
+        $this->authHelper->checkLoggedIn();
+
         $files = $_FILES['input_name'];
         $nombre = $_POST['nombre'];
         $categoria = $_POST['categoria'];
@@ -55,8 +57,8 @@ class ProductController
     }
 
 
-    function deleteProd($id)
-    {
+    function deleteProd($id){
+        $this->authHelper->checkLoggedIn();
         if (isset($id)) {
             if ($_SESSION['rol'] == 0) {
                 $this->authHelper->checkLoggedIn();
@@ -69,6 +71,7 @@ class ProductController
     }
 
     function editProd($id){
+        $this->authHelper->checkLoggedIn();
         $categories = $this->modelCategory->getListCategory();
         $producto = $this->model->getProd($id);
         $this->view->showEdit($producto, $categories);
@@ -76,6 +79,7 @@ class ProductController
     
 
     function updateProd(){
+        $this->authHelper->checkLoggedIn();
         $files = $_FILES['input_name'];
         $id = $_POST['id'];
         $nombre = $_POST['nombre'];
@@ -103,9 +107,7 @@ class ProductController
         }
     }
 
-    function viewProd($id)
-    {
-
+    function viewProd($id){
         $producto = $this->model->getProd($id);
         $id = null;
         $rol = null;
